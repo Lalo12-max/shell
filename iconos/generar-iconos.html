@@ -57,7 +57,7 @@
             
             const ctx = canvas.getContext('2d');
             
-            // Fondo degradado
+            
             const gradient = ctx.createLinearGradient(0, 0, tamaño, tamaño);
             gradient.addColorStop(0, '#2196F3');
             gradient.addColorStop(1, '#1976D2');
@@ -65,14 +65,14 @@
             ctx.fillStyle = gradient;
             ctx.fillRect(0, 0, tamaño, tamaño);
             
-            // Texto PWA
+            
             ctx.fillStyle = 'white';
             ctx.font = `bold ${tamaño * 0.2}px Arial`;
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
             ctx.fillText('PWA', tamaño / 2, tamaño / 2);
             
-            // Información del tamaño
+           
             const label = document.createElement('p');
             label.textContent = `${tamaño}x${tamaño}px`;
             label.style.margin = '5px 0';

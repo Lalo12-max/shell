@@ -1,12 +1,12 @@
 const CACHE_NAME = 'mi-pwa-v1';
 const urlsToCache = [
-    '/',
-    '/index.html',
-    '/css/estilos.css',
-    '/js/app.js',
-    '/manifest.json',
-    '/iconos/icono-192x192.png',
-    '/iconos/icono-512x512.png'
+    '/shell/',
+    '/shell/index.html',
+    '/shell/css/estilos.css',
+    '/shell/js/app.js',
+    '/shell/manifest.json',
+    '/shell/iconos/icono-192x192.png',
+    '/shell/iconos/icono-512x512.png'
 ];
 
 // Instalación del Service Worker
@@ -75,7 +75,7 @@ self.addEventListener('fetch', event => {
                     .catch(() => {
                         // Si falla la red, mostrar página offline para navegación
                         if (event.request.destination === 'document') {
-                            return caches.match('/index.html');
+                            return caches.match('/shell/index.html');
                         }
                     });
             })

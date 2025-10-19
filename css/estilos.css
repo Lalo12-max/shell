@@ -1,0 +1,391 @@
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* App Shell */
+#app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Encabezado */
+.encabezado {
+    background: linear-gradient(135deg, #2196F3, #1976D2);
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.contenedor-encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.titulo-app {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.boton-menu {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.boton-menu:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+/* Menú Principal */
+.menu-principal {
+    background-color: #1976D2;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    position: absolute;
+    width: 100%;
+    z-index: 99;
+}
+
+.menu-principal.activo {
+    transform: translateY(0);
+}
+
+.lista-menu {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.lista-menu li {
+    flex: 1;
+    min-width: 120px;
+}
+
+.enlace-menu {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 1rem;
+    text-align: center;
+    transition: background-color 0.3s;
+    border-bottom: 3px solid transparent;
+}
+
+.enlace-menu:hover,
+.enlace-menu.activo {
+    background-color: rgba(255,255,255,0.1);
+    border-bottom-color: #FFC107;
+}
+
+/* Contenido Principal */
+.contenido-principal {
+    flex: 1;
+    padding: 2rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.vista {
+    animation: fadeIn 0.3s ease;
+}
+
+.vista.oculto {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Tarjetas */
+.tarjeta {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.tarjeta h3 {
+    color: #2196F3;
+    margin-bottom: 1rem;
+}
+
+.tarjeta ul {
+    padding-left: 1.5rem;
+}
+
+.tarjeta li {
+    margin: 0.5rem 0;
+}
+
+/* Productos */
+.lista-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.producto {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.producto:hover {
+    transform: translateY(-2px);
+}
+
+.producto h3 {
+    color: #2196F3;
+    margin-bottom: 0.5rem;
+}
+
+.producto .precio {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #4CAF50;
+    margin-top: 0.5rem;
+}
+
+/* Noticias */
+.lista-noticias {
+    margin-top: 1rem;
+}
+
+.noticia {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-left: 4px solid #2196F3;
+}
+
+.noticia h3 {
+    color: #2196F3;
+    margin-bottom: 0.5rem;
+}
+
+.noticia .fecha {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Tareas */
+.formulario-tarea {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.formulario-tarea input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.formulario-tarea input:focus {
+    outline: none;
+    border-color: #2196F3;
+}
+
+.formulario-tarea button,
+#actualizarCache {
+    background: #2196F3;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.formulario-tarea button:hover,
+#actualizarCache:hover {
+    background: #1976D2;
+}
+
+.lista-tareas {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.tarea {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tarea:last-child {
+    border-bottom: none;
+}
+
+.tarea.completada {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.tarea button {
+    background: #f44336;
+    color: white;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+/* Cargando */
+.cargando {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Pie de página */
+.pie-pagina {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: auto;
+}
+
+/* Notificación de instalación */
+.notificacion-instalacion {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background: #2196F3;
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+.notificacion-instalacion.oculto {
+    display: none;
+}
+
+.notificacion-instalacion button {
+    background: white;
+    color: #2196F3;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 0.5rem;
+}
+
+#cerrarNotificacion {
+    background: transparent;
+    color: white;
+    font-size: 1.2rem;
+    padding: 0.25rem 0.5rem;
+}
+
+/* Estados de conexión */
+.sin-conexion {
+    background: #f44336;
+    color: white;
+    padding: 0.5rem;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .lista-menu {
+        flex-direction: column;
+    }
+    
+    .lista-menu li {
+        min-width: auto;
+    }
+    
+    .formulario-tarea {
+        flex-direction: column;
+    }
+    
+    .notificacion-instalacion {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+}
+
+@media (min-width: 769px) {
+    .menu-principal {
+        position: static;
+        transform: none;
+        background-color: #1976D2;
+    }
+    
+    .boton-menu {
+        display: none;
+    }
+}

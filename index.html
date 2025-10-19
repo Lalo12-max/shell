@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Aplicación PWA</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/estilos.css">
+    <meta name="theme-color" content="#2196F3">
+    <link rel="icon" type="image/png" sizes="192x192" href="iconos/icono-192x192.png">
+    <link rel="apple-touch-icon" href="iconos/icono-192x192.png">
+</head>
+<body>
+    <!-- App Shell -->
+    <div id="app">
+        <!-- Encabezado -->
+        <header class="encabezado">
+            <div class="contenedor-encabezado">
+                <h1 class="titulo-app">Mi PWA</h1>
+                <button class="boton-menu" id="botonMenu">☰</button>
+            </div>
+        </header>
+
+        <!-- Menú Principal -->
+        <nav class="menu-principal" id="menuPrincipal">
+            <ul class="lista-menu">
+                <li><a href="#" data-vista="inicio" class="enlace-menu activo">Inicio</a></li>
+                <li><a href="#" data-vista="productos" class="enlace-menu">Productos</a></li>
+                <li><a href="#" data-vista="noticias" class="enlace-menu">Noticias</a></li>
+                <li><a href="#" data-vista="tareas" class="enlace-menu">Tareas</a></li>
+                <li><a href="#" data-vista="configuracion" class="enlace-menu">Configuración</a></li>
+            </ul>
+        </nav>
+
+        <!-- Contenido Principal -->
+        <main class="contenido-principal" id="contenidoPrincipal">
+            <!-- Vista de Inicio -->
+            <section class="vista" id="vista-inicio">
+                <h2>Bienvenido a Mi PWA</h2>
+                <p>Esta es una aplicación web progresiva con funcionalidad offline.</p>
+                <div class="tarjeta">
+                    <h3>Características</h3>
+                    <ul>
+                        <li>Funciona sin conexión</li>
+                        <li>Instalable en dispositivos</li>
+                        <li>Carga rápida</li>
+                        <li>Responsive</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Vista de Productos -->
+            <section class="vista oculto" id="vista-productos">
+                <h2>Productos</h2>
+                <div class="cargando" id="cargandoProductos">Cargando productos...</div>
+                <div class="lista-productos" id="listaProductos"></div>
+            </section>
+
+            <!-- Vista de Noticias -->
+            <section class="vista oculto" id="vista-noticias">
+                <h2>Noticias</h2>
+                <div class="cargando" id="cargandoNoticias">Cargando noticias...</div>
+                <div class="lista-noticias" id="listaNoticias"></div>
+            </section>
+
+            <!-- Vista de Tareas -->
+            <section class="vista oculto" id="vista-tareas">
+                <h2>Mis Tareas</h2>
+                <div class="formulario-tarea">
+                    <input type="text" id="nuevaTarea" placeholder="Agregar nueva tarea...">
+                    <button id="agregarTarea">Agregar</button>
+                </div>
+                <div class="lista-tareas" id="listaTareas"></div>
+            </section>
+
+            <!-- Vista de Configuración -->
+            <section class="vista oculto" id="vista-configuracion">
+                <h2>Configuración</h2>
+                <div class="tarjeta">
+                    <h3>Estado de la Aplicación</h3>
+                    <p>Estado de conexión: <span id="estadoConexion">En línea</span></p>
+                    <p>Service Worker: <span id="estadoSW">Verificando...</span></p>
+                    <button id="actualizarCache">Actualizar Caché</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Pie de Página -->
+        <footer class="pie-pagina">
+            <p>&copy; 2024 Mi Aplicación PWA. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <!-- Notificación de instalación -->
+    <div class="notificacion-instalacion oculto" id="notificacionInstalacion">
+        <p>¡Instala esta aplicación en tu dispositivo!</p>
+        <button id="instalarApp">Instalar</button>
+        <button id="cerrarNotificacion">×</button>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

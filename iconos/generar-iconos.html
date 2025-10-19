@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Iconos PWA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .icono {
+            display: inline-block;
+            margin: 10px;
+            text-align: center;
+        }
+        canvas {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .info {
+            background: #f0f8ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generador de Iconos PWA</h1>
+    
+    <div class="info">
+        <p><strong>Instrucciones:</strong></p>
+        <ol>
+            <li>Abre esta página en tu navegador</li>
+            <li>Haz clic derecho en cada icono generado</li>
+            <li>Selecciona "Guardar imagen como..."</li>
+            <li>Guarda cada icono con el nombre correspondiente en la carpeta "iconos"</li>
+        </ol>
+    </div>
+
+    <div id="iconos-container"></div>
+
+    <script>
+        const tamaños = [72, 96, 128, 144, 152, 192, 384, 512];
+        const container = document.getElementById('iconos-container');
+
+        tamaños.forEach(tamaño => {
+            const div = document.createElement('div');
+            div.className = 'icono';
+            
+            const canvas = document.createElement('canvas');
+            canvas.width = tamaño;
+            canvas.height = tamaño;
+            
+            const ctx = canvas.getContext('2d');
+            
+            // Fondo degradado
+            const gradient = ctx.createLinearGradient(0, 0, tamaño, tamaño);
+            gradient.addColorStop(0, '#2196F3');
+            gradient.addColorStop(1, '#1976D2');
+            
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, tamaño, tamaño);
+            
+            // Texto PWA
+            ctx.fillStyle = 'white';
+            ctx.font = `bold ${tamaño * 0.2}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('PWA', tamaño / 2, tamaño / 2);
+            
+            // Información del tamaño
+            const label = document.createElement('p');
+            label.textContent = `${tamaño}x${tamaño}px`;
+            label.style.margin = '5px 0';
+            label.style.fontSize = '12px';
+            
+            div.appendChild(canvas);
+            div.appendChild(label);
+            container.appendChild(div);
+        });
+    </script>
+</body>
+</html>
